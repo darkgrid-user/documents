@@ -1,0 +1,55 @@
+% arara: pdflatex
+% arara: clean: { extensions: [ aux, log ] }
+
+\documentclass[a4paper,11pt]{article}
+\title{Test title}
+\author{Anton Hirov}
+\date{September 13, 2024}
+
+%\usepackage{parskip}
+\newcommand{\keyword}[2][\bfseries]{{#1#2}}
+\hyphenation{ac-ro-nym ac-ro-nym-ic a-cro-nym-i-cal-ly}
+
+\begin{document}
+\maketitle
+\section{Test section}
+{\centering
+This is our \emph{document}. It contains a title and a section with text.
+
+}
+
+{\raggedleft
+Statement \#1:50\% of \$100 equals \$50.
+
+}
+More special symbols are \&, \_, \{ and \}.\\
+Besides from \textit{italics}, words can be \textbf{bold},
+\textsl{slanted}, or typeset in \textsc{Small Caps}.
+
+``\textsf{\textbf{Get help on the Internet}}''\\
+\texttt{https://latex.org} is a support forum for \LaTeX.
+
+\begin{quote}
+    \sffamily\bfseries Get help on the Internet\normalfont\\
+    {\ttfamily https://latex.org} is a support forum for \LaTeX.
+\end{quote}
+
+\noindent\tiny We \scriptsize start \footnotesize very \small small,
+\normalsize get \large big \Large and \LARGE bigger, \huge huge, \Huge gigantic!
+\normalsize
+\begin{center}
+    \keyword{Dr.~Watson}\\[2mm]
+    \keyword[\itshape]{Dr.~Watson}
+\end{center}
+
+\quad\fbox{\parbox[b][3cm][c]{1.5cm}{bottom aligned parbox}}
+\quad\fbox{\parbox[c][3cm][b]{1.5cm}{center aligned parbox}}
+\quad\fbox{\parbox[t][3cm][t]{1.5cm}{top aligned parbox}}
+
+\begin{minipage}{3cm}
+\raggedright TUG is an acronym. It means \TeX\ Users Group.
+\end{minipage}
+
+
+
+\end{document}
