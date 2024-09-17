@@ -1,0 +1,38 @@
+% arara: pdflatex
+% arara: clean: { extensions: [ aux, log ] }
+
+\documentclass[a4paper,11pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage[a4paper,inner=1.5cm,outer=3cm,top=3cm,bottom=3cm,bindingoffset=1cm]{geometry}
+\usepackage[doublespacing]{setspace}
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[LE]{\scshape\nouppercase{\leftmark}}
+\fancyhead[RO]{\nouppercase{\rightmark}}
+\fancyfoot[LE,RO]{\thepage}
+\pagestyle{fancy}
+
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footnoterule}{\noindent\smash{\rule[3pt]{\textwidth}{0.4pt}}}
+
+\begin{document}
+\tableofcontents
+\part[Part1]{Main part}
+\chapter[Page layout]{Exploring the page layout}
+In this chapter we will study the layout of pages.
+
+\section[Filler text]{Some filler text}
+\blindtext
+
+\section*{A lot more filler text}
+\section[New]{A new section}
+More dummy text\footnote{serving as a placeholder} will follow.
+%\pagebreak
+%\newpage
+
+\subsection[Plenty]{Plenty of filler text}
+\paragraph{Paragraph bingo}
+%\enlargethispage{3\baselineskip}
+\blindtext[10]
+\end{document}
