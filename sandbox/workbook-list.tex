@@ -1,0 +1,54 @@
+% arara: pdflatex
+% arara: clean: { extensions: [ aux, log ] }
+
+\documentclass{article}
+%\usepackage{paralist}
+\usepackage{enumitem}
+\setlist{nosep}
+\setitemize[1]{label=---,itemindent=2cm}
+\setenumerate[1]{label=\textcircled{\scriptsize\Alph*/},font=\sffamily}
+\usepackage{layouts}
+
+\begin{document}
+\section*{Lists}
+\begin{enumerate}[start=4]
+    \item State the paper size by an option to the document class
+    \item[6/2] Determine the margin dimensions using one of these packages:
+    \begin{itemize}
+        \item geometry
+        \item typearea
+    \end{itemize}
+    \item Customize header and footer by one of these packages:
+    \begin{itemize}
+        \item fancyhdr
+        \item scrpage-scrlayer
+    \end{itemize}
+\end{enumerate}
+\noindent\textbf{Tweaking the line spacing:}
+\begin{enumerate}[resume*]
+    \item Adjust the line spacing for the whole document
+    \begin{itemize}
+        \item by using the setspace package and one of its options:
+        \begin{itemize}[label=*]
+            \item singlespacing
+            \item onehalfspacing
+            \item double spacing
+        \end{itemize}
+        \item or by the command
+            \verb|\linespread{factor}|
+    \end{itemize}
+\end{enumerate}
+\begin{description}
+    \item[paralist] provides compact lists and list 
+    versions that can be used within paragraphs,
+    helps to customize labels and layout.
+    \item[enumitem] gives control over labels and lengths in all kind of lists.
+    \item[mdwlist] is useful to customize description lists,
+    it even allows multi-line labels.
+    It features compact lists and the capability to suspend and resume.
+    \item[desclist] offers more flexibility in definition list.
+    \item[multenum] produces vertical enumeration in multiple columns.
+\end{description}
+\newpage
+\listdiagram
+\end{document}
