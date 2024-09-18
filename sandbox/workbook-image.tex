@@ -1,0 +1,42 @@
+% arara: pdflatex
+% arara: clean: { extensions: [ aux, log ] }
+
+\documentclass[a5paper]{article}
+\usepackage[top=3cm,bottom=2cm]{geometry}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{graphicx}
+
+\usepackage{caption}% or capt-of
+\usepackage{wrapfig}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\section{Include a floating picture}
+\blindtext
+\begin{figure}[!b]
+    \centering
+    \includegraphics[width=3cm]{example-image}
+    \caption{Test figure}
+\end{figure}
+\blindtext
+
+\section{Include a not floating picture}
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=3cm]{example-image}
+    \captionof{figure}{Test figure}
+\end{minipage}
+
+\section*{Include a wrapped picture}
+\blindtext
+\\
+\begin{wrapfigure}{l}[1cm]{4cm}
+    \includegraphics[width=4cm]{example-image}
+    \caption{Test figure}
+\end{wrapfigure}
+\blindtext
+
+\end{document}
