@@ -1,0 +1,55 @@
+% arara: pdflatex
+% arara: clean: { extensions: [ log ] }
+
+\documentclass{book}
+\usepackage{graphicx}
+
+\usepackage[nospace]{varioref}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\Crefname{figure}{Figure.}{Figures.}
+
+\begin{document}
+
+\tableofcontents
+\chapter{Statistics}
+\section{Most used packages by LaTeX.org users}
+\label{sec:packages}
+
+The Top Five packages, used by LaTeX.org
+members\footnote{according to the 2021 survey on
+LaTeX.org\label{fn:project}}:
+
+\begin{enumerate}
+    \item graphicx\label{item:graphicx}
+    \item babel
+    \item amsmath\label{item:amsmath}
+    \item geometry
+    \item hyperref
+\end{enumerate}
+
+%\chapter{Mathematics}
+%\label{maths}
+\newpage
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=4cm]{example-image}
+    \caption{Test figure}\label{fig:name}
+\end{figure}
+
+\emph{amsmath}, on position \vref{item:amsmath}
+of the top list in section~\vref{sec:packages},
+is indispensable to high-quality mathematical
+typesetting in \LaTeX. \emph{graphicx},
+on position~\vref{item:graphicx}, is for including images.
+See also the footnote \vref{fn:project}, that is,
+\vpageref[above project][project]{fn:project}.
+
+See items~\vrefrange{item:graphicx}{item:amsmath}.
+
+%Ref to image \ref{fig:name} on page~\pageref{fig:name}
+Ref to \Cref{fig:name} on \cpageref{fig:name}
+
+\end{document}
