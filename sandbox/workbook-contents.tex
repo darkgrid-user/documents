@@ -1,0 +1,79 @@
+% arara: pdflatex
+% arara: makeindex: { options: [ '-s', 'iso' ] }
+% arara: bibtex
+% arara: pdflatex
+% arara: clean: { extensions: [ aux, log ] }
+
+\documentclass{book}
+\usepackage{url}
+\usepackage{index}
+\makeindex
+
+\setcounter{tocdepth}{3}
+\renewcommand{\figurename}{Diagram}
+\renewcommand{\listfigurename}{List of Diagrams}
+\renewcommand{\bibname}{References}
+
+\begin{document}
+
+\tableofcontents
+\listoffigures
+
+\part{First Part}
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+\chapter[1st main chapter]{\index{Gamma@$\Gamma$}First main chapter}
+\section{A section}
+\section{\index{wireless|see{WLAN}}Another section}
+\subsection{A smaller section}
+\subsubsection[Deeper level]{This section has an even deeper level}
+\begin{figure}
+    \centering
+    \fbox{Diagram placeholder}
+    \caption{\index{enterprise!organization}Enterprise Organizational Chart}
+\end{figure}
+
+\chapter[2nd main chapter]{Second main chapter}
+
+\part{Second part}
+\chapter[3rd main chapter]{Third main chapter}
+\addtocontents{lof}{Network Diagrams:}
+\begin{figure}
+    \centering
+    \fbox{Diagram placeholder}
+    \caption{\index{network!overview|(}Network overview}
+\end{figure}
+\begin{figure}
+    \centering
+    \fbox{Diagram placeholder}
+    \caption{\index{network!overview|)}\index{WLAN|textbf}WLAN Design}
+\end{figure}
+
+\chapter*{Recommended texts}
+To study \TeX\ in depth, see \cite{DK86}.
+For writing math texts, see \cite{DK89}.
+To study \TeX\ in depth, see \cite{DK862}.
+For writing math texts, see \cite{DK892}.
+\nocite{*}
+
+\begin{thebibliography}{8}
+    \bibitem[Knuth86]{DK86} D.E. Knuth, \emph{The {\TeX}book}, 1986
+    \bibitem[Knuth89]{DK89} D.E. Knuth, \emph{Typesetting Concrete
+    Mathematics}, 1989
+\end{thebibliography}
+
+\bibliographystyle{alpha}
+\bibliography{workbook-contents}
+
+\appendix
+\cleardoublepage
+\addtocontents{toc}{\bigskip}
+\addcontentsline{toc}{part}{Appendix}
+\chapter{Glossary}
+\chapter{Symbols}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+\end{document}
