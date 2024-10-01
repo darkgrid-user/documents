@@ -1,0 +1,33 @@
+% arara: pdflatex
+% arara: makeindex: { options: [ '-s', 'iso' ] }
+% arara: bibtex
+% arara: pdflatex
+% arara: latexmk: { clean: partial }
+
+\documentclass{book}
+
+\input{preamble}
+\makeindex
+%\includeonly{parts/chapter2}
+
+\begin{document}
+
+\include{title}
+
+\frontmatter
+\include{dedication}
+\tableofcontents
+\listoftables
+\listoffigures
+
+\mainmatter
+\include{parts/chapter1}
+\include{parts/chapter2}
+
+\backmatter
+\include{proofs}
+\nocite{*}
+\bibliographystyle{plainnat}
+\bibliography{resources}
+
+\end{document}
