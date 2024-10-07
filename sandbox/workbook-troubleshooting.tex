@@ -1,0 +1,18 @@
+% arara: pdflatex:
+% arara: --> {
+% arara: --> interaction:nonstopmode,
+% arara: --> options: ['-file-line-error']
+% arara: --> }
+% arara: clean: { extensions: [ log ] }
+
+\documentclass[option=1,newoption=2]{article}
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+
+\emph{Hello world!}
+\label{test}
+\label{test}
+\label{test}
+
+\end{document}
