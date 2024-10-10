@@ -1,0 +1,45 @@
+!config
+# Dark Grid Systems
+# Copyright (c) 2024
+identifier: moveTo
+name: MoveTo
+authors:
+- Anton Hirov
+commands:
+- name: Move files to the folder
+  command: >
+    @{
+        System.out.println('(MoveTo) Initialization...');
+        
+        modeCommand = [ 'cmd', '/c', 'move', '/y' ];
+        fileExtension = extension[0];
+        folderName = folder[0];
+        
+        filePattern = '\\*.' + fileExtension;
+        source = toFile('') + filePattern;
+        
+        destination = toFile(folderName);
+        destination.createDirectories();
+        
+        System.out.println('Source:' + source);
+        System.out.println('Destination:' + destination);
+        System.out.println('Action: move '
+                         + filePattern
+                         + ' files to '
+                         + folderName
+                         + ' folder');
+        return getCommand(modeCommand, source, destination);
+    }
+arguments:
+- identifier: extension
+  flag: >
+    @{
+        return parameters.extension;
+    }
+  required: true
+- identifier: folder
+  flag: >
+    @{
+        return parameters.folder;
+    }
+  required: true

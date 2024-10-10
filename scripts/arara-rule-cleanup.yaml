@@ -1,0 +1,61 @@
+!config
+# Dark Grid Systems
+# Copyright (c) 2024
+identifier: cleanUp
+name: CleanUp
+authors:
+- Anton Hirov
+commands:
+- name: Delete files by extensions
+  command: >
+    @{
+        System.out.println('(CleanUp) Initialization...');
+        
+        dirCommand = [ 'cmd', '/c', 'dir', '/w', '/o' ];
+        delCommand = [ 'cmd', '/c', 'del', '/q' ];
+        isSubFolders = isTrue(isIncludeSubFolders[0]);
+        
+        if(isSubFolders) {
+            dirCommand.add('/s');
+            delCommand.add('/s');
+        }
+        
+        totalCommands = [];
+        foreach(fileExtension : extensions) {
+            filePattern = '\\*.' + fileExtension;
+            filePath = toFile('') + filePattern;
+            
+            fileDirCommand = getCommand(dirCommand, filePath);
+            totalCommands.add(fileDirCommand);
+        
+            fileDelCommand = getCommand(delCommand, filePath);
+            totalCommands.add(fileDelCommand);
+            
+            System.out.println('Files: ' + filePath + ' will be deleted!');
+        }
+        
+        if(isSubFolders) {
+            System.out.println('Note: Subfolders are included in the search.');
+        }
+        System.out.println('Action: Permanent file deletion.');
+        return totalCommands;
+    }
+arguments:
+- identifier: extensions
+  flag: >
+    @{
+        items = parameters.extensions;
+        if (isList(items) && items.size() > 0) {
+            return items;
+        }
+        else {
+            throwError('A list of extensions is expected!');
+        }
+    }
+  required: true
+- identifier: isIncludeSubFolders
+  flag: >
+    @{
+        return parameters.isIncludeSubFolders;
+    }
+  default: false
