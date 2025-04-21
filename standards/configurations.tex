@@ -1,0 +1,36 @@
+% CONFIGURATION DECLARATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page dimensions
+\geometry
+{
+	portrait,      % paper orientation
+	paper=a4paper, % specifies the paper size by name
+	top=1cm,       % top margin of the page
+	bottom=1cm,    % bottom margin of the page
+	left=1.5cm,    % left margin of the total body
+	right=1cm,     % right margin of the total body
+}
+
+% title configuration
+\titleformat
+{\chapter}                        % command name
+[display]                         % paragraph shape
+{\bfseries\Large}                 % label and title body format
+{{\chaptertitlename} \thechapter} % label definition
+{0cm}                             % horizontal separation between the label and the title body
+{}                                % code preceding the title body
+{}                                % code following the title body
+
+\titlespacing
+{\chapter}  % command name
+{1cm}       % left margin of the title
+{0cm}       % vertical space before the title
+{0.5cm}     % separation between title and text
+
+% LENGTHS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% paragraph indentation
+\setlength{\parindent}{1cm}
+
+% COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
